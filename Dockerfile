@@ -13,7 +13,7 @@ RUN cd bin \
  && mv solc-static-linux solc \
  && chmod 744 solc
 
-RUN wget https://releases.parity.io/v1.11.11/x86_64-unknown-linux-gnu/parity_1.11.11_ubuntu_amd64.deb \
+RUN wget https://releases.parity.io/ethereum/v1.11.11/x86_64-unknown-linux-gnu/parity_1.11.11_ubuntu_amd64.deb \
  && dpkg --install parity_1.11.11_ubuntu_amd64.deb \
  && (parity --chain dev &) \
  && sleep 10 \
@@ -25,11 +25,15 @@ RUN wget https://dist.ipfs.io/go-ipfs/v0.4.17/go-ipfs_v0.4.17_linux-amd64.tar.gz
  && ./install.sh \
  && ipfs init
 
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - \
+ && apt-get install -y nodejs
+
 RUN git clone https://github.com/TrueBitFoundation/truebit-os \
  && cd truebit-os \
  && git checkout docker \
  && npm i --production\
  && npm run deps \
+ && npm rebuild \
  && npm run compile
 
 # ipfs and eth ports
