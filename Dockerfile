@@ -9,7 +9,7 @@ RUN apt-get  update \
  && npm install -g ganache-cli mocha
 
 RUN cd bin \
- && wget https://github.com/ethereum/solidity/releases/download/v0.4.25/solc-static-linux \
+ && wget https://github.com/ethereum/solidity/releases/download/v0.5.3/solc-static-linux \
  && mv solc-static-linux solc \
  && chmod 744 solc
 
@@ -30,11 +30,16 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - \
 
 RUN git clone https://github.com/TrueBitFoundation/truebit-os \
  && cd truebit-os \
- && git checkout docker \
  && npm i --production\
  && npm run deps \
  && npm rebuild \
  && npm run compile
+
+RUN cd \
+ && git clone https://github.com/TrueBitFoundation/example-app \
+ && cd example-app \
+ && ln -s /truebit-os truebit-os \
+ && npm i
 
 # ipfs and eth ports
 EXPOSE 4001 30303
