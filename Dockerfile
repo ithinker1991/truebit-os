@@ -40,12 +40,12 @@ RUN cd \
  && cd example-app \
  && ln -s /truebit-os truebit-os \
  && npm i \
- && npm install -g browserify
+ && npm install -g browserify \
  && browserify public/js/app.js -o public/js/bundle.js
 
 # ipfs and eth ports
-EXPOSE 4001 30303
+EXPOSE 4001 30303 8545 3000
 
 # docker build . -t truebit-os:latest
-# docker run -it -p 4001:4001 -p 30303:30303 -v ~/kovan:/root/.local/share/io.parity.ethereum truebit-os:latest /bin/bash
+# docker run -it -p 4001:4001 -p 30303:30303 -p 3000:3000 -p 8545:8545 -v ~/kovan:/root/.local/share/io.parity.ethereum truebit-os:latest /bin/bash
 # ipfs swarm connect /ip4/176.9.9.249/tcp/4001/ipfs/QmS6C9YNGKVjWK2ctksqYeRo3zGoosEPRuPhCvgAVHBXtg
