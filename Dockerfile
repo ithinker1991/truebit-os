@@ -28,7 +28,7 @@ RUN wget https://dist.ipfs.io/go-ipfs/v0.4.17/go-ipfs_v0.4.17_linux-amd64.tar.gz
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - \
  && apt-get install -y nodejs
 
-RUN git clone https://github.com/TrueBitFoundation/truebit-os \
+RUN git clone https://github.com/huzhenyuan/truebit-os \
  && cd truebit-os \
  && npm i --production\
  && npm run deps \
