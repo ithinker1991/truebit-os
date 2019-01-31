@@ -4,7 +4,7 @@ MAINTAINER Sami Mäkelä
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get  update \
- && apt-get install -y git cmake ninja-build g++ python wget ocaml opam libzarith-ocaml-dev m4 pkg-config zlib1g-dev psmisc sudo curl tmux nano npm \
+ && apt-get install -y vim git cmake ninja-build g++ python wget ocaml opam libzarith-ocaml-dev m4 pkg-config zlib1g-dev psmisc sudo curl tmux nano npm \
  && opam init -y \
  && npm install -g ganache-cli mocha
 
