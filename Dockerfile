@@ -39,7 +39,9 @@ RUN cd \
  && git clone https://github.com/TrueBitFoundation/example-app \
  && cd example-app \
  && ln -s /truebit-os truebit-os \
- && npm i
+ && npm i \
+ && npm install -g browserify
+ && browserify public/js/app.js -o public/js/bundle.js
 
 # ipfs and eth ports
 EXPOSE 4001 30303
