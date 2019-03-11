@@ -8,6 +8,9 @@ RUN apt-get  update \
  && opam init -y \
  && npm install -g ganache-cli mocha
 
+# nohup ganache-cli -a -h 0.0.0.0 &
+# ipfs daemon
+
 RUN cd bin \
  && wget https://github.com/ethereum/solidity/releases/download/v0.5.3/solc-static-linux \
  && mv solc-static-linux solc \
